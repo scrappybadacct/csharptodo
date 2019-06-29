@@ -1,0 +1,9 @@
+/home/conor/dev/todo/src/Lib/bin/Debug/netstandard2.0/Lib.deps.json
+/home/conor/dev/todo/src/Lib/bin/Debug/netstandard2.0/Lib.dll
+/home/conor/dev/todo/src/Lib/bin/Debug/netstandard2.0/Lib.pdb
+/home/conor/dev/todo/src/Lib/obj/Debug/netstandard2.0/Lib.csprojAssemblyReference.cache
+/home/conor/dev/todo/src/Lib/obj/Debug/netstandard2.0/Lib.csproj.CoreCompileInputs.cache
+/home/conor/dev/todo/src/Lib/obj/Debug/netstandard2.0/Lib.AssemblyInfoInputs.cache
+/home/conor/dev/todo/src/Lib/obj/Debug/netstandard2.0/Lib.AssemblyInfo.cs
+/home/conor/dev/todo/src/Lib/obj/Debug/netstandard2.0/Lib.dll
+/home/conor/dev/todo/src/Lib/obj/Debug/netstandard2.0/Lib.pdb

@@ -1,0 +1,14 @@
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/App.deps.json
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/App.runtimeconfig.json
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/App.runtimeconfig.dev.json
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/App.dll
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/App.pdb
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/Lib.dll
+/home/conor/dev/todo/src/App/bin/Debug/netcoreapp2.2/Lib.pdb
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.csprojAssemblyReference.cache
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.csproj.CoreCompileInputs.cache
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.AssemblyInfoInputs.cache
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.AssemblyInfo.cs
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.csproj.CopyComplete
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.dll
+/home/conor/dev/todo/src/App/obj/Debug/netcoreapp2.2/App.pdb
