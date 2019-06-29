@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/conor/dev/todo/src/Lib/Lib.csproj",
-      "projectName": "Lib",
-      "projectPath": "/home/conor/dev/todo/src/Lib/Lib.csproj",
+      "projectUniqueName": "/home/conor/dev/todo/src/Models/Models.csproj",
+      "projectName": "Models",
+      "projectPath": "/home/conor/dev/todo/src/Models/Models.csproj",
       "packagesPath": "/home/conor/.nuget/packages/",
-      "outputPath": "/home/conor/dev/todo/src/Lib/obj/",
+      "outputPath": "/home/conor/dev/todo/src/Models/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/home/conor/.asdf/installs/dotnet-core/2.2.105/sdk/NuGetFallbackFolder"

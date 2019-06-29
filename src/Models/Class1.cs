@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lib
+namespace Models
 {
     public class Class1
     {

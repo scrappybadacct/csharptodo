@@ -19,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Lib\Lib.csproj" />
     <ProjectReference Include="..\src\App\App.csproj" />
+    <ProjectReference Include="..\src\Models\Models.csproj" />
+    <ProjectReference Include="..\src\Controllers\Controllers.csproj" />
   </ItemGroup>
 
 </Project>
