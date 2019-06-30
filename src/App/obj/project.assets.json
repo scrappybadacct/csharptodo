@@ -208,14 +208,27 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Lib/1.0.0": {
+      "Controllers/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Controllers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Controllers.dll": {}
+        }
+      },
+      "Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/Lib.dll": {}
+          "bin/placeholder/Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Lib.dll": {}
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -689,15 +702,20 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Lib/1.0.0": {
+    "Controllers/1.0.0": {
       "type": "project",
-      "path": "../Lib/Lib.csproj",
-      "msbuildProject": "../Lib/Lib.csproj"
+      "path": "../Controllers/Controllers.csproj",
+      "msbuildProject": "../Controllers/Controllers.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "Lib >= 1.0.0",
+      "Controllers >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -708,11 +726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/conor/dev/todo/src/App/App.csproj",
+      "projectUniqueName": "/home/conor/dev/cstodo/src/App/App.csproj",
       "projectName": "App",
-      "projectPath": "/home/conor/dev/todo/src/App/App.csproj",
+      "projectPath": "/home/conor/dev/cstodo/src/App/App.csproj",
       "packagesPath": "/home/conor/.nuget/packages/",
-      "outputPath": "/home/conor/dev/todo/src/App/obj/",
+      "outputPath": "/home/conor/dev/cstodo/src/App/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/home/conor/.asdf/installs/dotnet-core/2.2.105/sdk/NuGetFallbackFolder"
@@ -729,8 +747,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "/home/conor/dev/todo/src/Lib/Lib.csproj": {
-              "projectPath": "/home/conor/dev/todo/src/Lib/Lib.csproj"
+            "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj": {
+              "projectPath": "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj"
             }
           }
         }

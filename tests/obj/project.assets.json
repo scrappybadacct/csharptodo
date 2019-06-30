@@ -1731,7 +1731,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "Lib": "1.0.0"
+          "Controllers": "1.0.0"
         },
         "compile": {
           "bin/placeholder/App.dll": {}
@@ -1740,14 +1740,27 @@
           "bin/placeholder/App.dll": {}
         }
       },
-      "Lib/1.0.0": {
+      "Controllers/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Controllers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Controllers.dll": {}
+        }
+      },
+      "Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/Lib.dll": {}
+          "bin/placeholder/Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Lib.dll": {}
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -5974,19 +5987,25 @@
       "path": "../src/App/App.csproj",
       "msbuildProject": "../src/App/App.csproj"
     },
-    "Lib/1.0.0": {
+    "Controllers/1.0.0": {
       "type": "project",
-      "path": "../src/Lib/Lib.csproj",
-      "msbuildProject": "../src/Lib/Lib.csproj"
+      "path": "../src/Controllers/Controllers.csproj",
+      "msbuildProject": "../src/Controllers/Controllers.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../src/Models/Models.csproj",
+      "msbuildProject": "../src/Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "App >= 1.0.0",
+      "Controllers >= 1.0.0",
       "FSharp.Core >= 4.5.2",
-      "Lib >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 15.9.0",
       "Microsoft.NETCore.App >= 2.2.0",
+      "Models >= 1.0.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]
@@ -5998,11 +6017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/conor/dev/todo/tests/tests.fsproj",
+      "projectUniqueName": "/home/conor/dev/cstodo/tests/tests.fsproj",
       "projectName": "tests",
-      "projectPath": "/home/conor/dev/todo/tests/tests.fsproj",
+      "projectPath": "/home/conor/dev/cstodo/tests/tests.fsproj",
       "packagesPath": "/home/conor/.nuget/packages/",
-      "outputPath": "/home/conor/dev/todo/tests/obj/",
+      "outputPath": "/home/conor/dev/cstodo/tests/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/home/conor/.asdf/installs/dotnet-core/2.2.105/sdk/NuGetFallbackFolder"
@@ -6019,11 +6038,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "/home/conor/dev/todo/src/App/App.csproj": {
-              "projectPath": "/home/conor/dev/todo/src/App/App.csproj"
+            "/home/conor/dev/cstodo/src/App/App.csproj": {
+              "projectPath": "/home/conor/dev/cstodo/src/App/App.csproj"
             },
-            "/home/conor/dev/todo/src/Lib/Lib.csproj": {
-              "projectPath": "/home/conor/dev/todo/src/Lib/Lib.csproj"
+            "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj": {
+              "projectPath": "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj"
+            },
+            "/home/conor/dev/cstodo/src/Models/Models.csproj": {
+              "projectPath": "/home/conor/dev/cstodo/src/Models/Models.csproj"
             }
           }
         }

@@ -1,0 +1,12 @@
+/home/conor/dev/cstodo/src/Controllers/bin/Debug/netstandard2.0/Controllers.deps.json
+/home/conor/dev/cstodo/src/Controllers/bin/Debug/netstandard2.0/Controllers.dll
+/home/conor/dev/cstodo/src/Controllers/bin/Debug/netstandard2.0/Controllers.pdb
+/home/conor/dev/cstodo/src/Controllers/bin/Debug/netstandard2.0/Models.dll
+/home/conor/dev/cstodo/src/Controllers/bin/Debug/netstandard2.0/Models.pdb
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.csprojAssemblyReference.cache
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.csproj.CoreCompileInputs.cache
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.AssemblyInfoInputs.cache
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.AssemblyInfo.cs
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.csproj.CopyComplete
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.dll
+/home/conor/dev/cstodo/src/Controllers/obj/Debug/netstandard2.0/Controllers.pdb

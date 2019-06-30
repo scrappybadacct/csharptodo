@@ -9,9 +9,10 @@
       "tests/1.0.0": {
         "dependencies": {
           "App": "1.0.0",
+          "Controllers": "1.0.0",
           "FSharp.Core": "4.5.2",
-          "Lib": "1.0.0",
           "Microsoft.NET.Test.Sdk": "15.9.0",
+          "Models": "1.0.0",
           "xunit": "2.4.0",
           "xunit.runner.visualstudio": "2.4.0"
         },
@@ -1110,15 +1111,23 @@
       },
       "App/1.0.0": {
         "dependencies": {
-          "Lib": "1.0.0"
+          "Controllers": "1.0.0"
         },
         "runtime": {
           "App.dll": {}
         }
       },
-      "Lib/1.0.0": {
+      "Controllers/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
         "runtime": {
-          "Lib.dll": {}
+          "Controllers.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "runtime": {
+          "Models.dll": {}
         }
       }
     }
@@ -1673,7 +1682,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Lib/1.0.0": {
+    "Controllers/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

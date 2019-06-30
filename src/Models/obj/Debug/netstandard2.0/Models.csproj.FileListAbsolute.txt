@@ -1,0 +1,9 @@
+/home/conor/dev/cstodo/src/Models/bin/Debug/netstandard2.0/Models.deps.json
+/home/conor/dev/cstodo/src/Models/bin/Debug/netstandard2.0/Models.dll
+/home/conor/dev/cstodo/src/Models/bin/Debug/netstandard2.0/Models.pdb
+/home/conor/dev/cstodo/src/Models/obj/Debug/netstandard2.0/Models.csprojAssemblyReference.cache
+/home/conor/dev/cstodo/src/Models/obj/Debug/netstandard2.0/Models.csproj.CoreCompileInputs.cache
+/home/conor/dev/cstodo/src/Models/obj/Debug/netstandard2.0/Models.AssemblyInfoInputs.cache
+/home/conor/dev/cstodo/src/Models/obj/Debug/netstandard2.0/Models.AssemblyInfo.cs
+/home/conor/dev/cstodo/src/Models/obj/Debug/netstandard2.0/Models.dll
+/home/conor/dev/cstodo/src/Models/obj/Debug/netstandard2.0/Models.pdb
