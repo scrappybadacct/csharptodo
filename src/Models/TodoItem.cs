@@ -9,11 +9,11 @@ namespace Models
     readonly public DateTime TimeStamp;
     public string ItemText;
 
-    public void TodoItem(long id, string text)
+    public TodoItem(long id, string text)
     {
       Id = id;
       ItemText = text;
-      TimeStamp = DateTime.Now();
+      TimeStamp = DateTime.Now;
     }
   }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 /* 
   I'm taking a break here.
   My plan going forward is to create save and load static methods which can serialize the object in XML to an external file.
@@ -18,7 +18,7 @@ namespace Models
     private readonly List<TodoItem> ItemList;
     public IReadOnlyList<TodoItem> Items { get; }
 
-    public void TodoList()
+    public TodoList()
     {
       IdCount = 0;
       ItemList = new List<TodoItem>();
@@ -50,7 +50,7 @@ namespace Models
       return Items;
     }
 
-    private static LoadFromFile() { }
-    private static SaveToFile() { }
+    static void LoadFromFile() { }
+    static void SaveToFile() { }
   }
 }
