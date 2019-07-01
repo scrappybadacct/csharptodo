@@ -201,11 +201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj",
+      "projectUniqueName": "/home/conor/dev/todo/src/Controllers/Controllers.csproj",
       "projectName": "Controllers",
-      "projectPath": "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj",
+      "projectPath": "/home/conor/dev/todo/src/Controllers/Controllers.csproj",
       "packagesPath": "/home/conor/.nuget/packages/",
-      "outputPath": "/home/conor/dev/cstodo/src/Controllers/obj/",
+      "outputPath": "/home/conor/dev/todo/src/Controllers/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/home/conor/.asdf/installs/dotnet-core/2.2.105/sdk/NuGetFallbackFolder"
@@ -222,8 +222,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/home/conor/dev/cstodo/src/Models/Models.csproj": {
-              "projectPath": "/home/conor/dev/cstodo/src/Models/Models.csproj"
+            "/home/conor/dev/todo/src/Models/Models.csproj": {
+              "projectPath": "/home/conor/dev/todo/src/Models/Models.csproj"
             }
           }
         }
