@@ -17,7 +17,7 @@ namespace Models
     public TodoList()
     {
       IdCount = 0;
-      ItemList = new List<TodoItem>();
+      ItemList = File.Exists(DEFAULT_XML_FILE_PATH) ? LoadFromFile() : new List<TodoItem>();
       Items = ItemList.AsReadOnly();
     }
 
@@ -46,13 +46,15 @@ namespace Models
       return Items;
     }
 
-    // is this really the best way to do this?
-    // replace with foreach for one.
-    // but its the casts and parsing I'm worried about.
-    static void LoadFromFile()
+    public void Save()
+    {
+      SaveToFile(ItemList);
+    }
+
+    static List<TodoItem> LoadFromFile()
     {
       XDocument doc = XDocument.Load(DEFAULT_XML_FILE_PATH);
-      doc.Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
+      return doc.Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
       {
         string id = xel.Element("Id").Value;
         string itemText = xel.Element("ItemText").Value;
@@ -71,6 +73,21 @@ namespace Models
       });
     }
 
-    static void SaveToFile() { }
+    static void SaveToFile(List<TodoItem> lst)
+    {
+      XDocument newDoc = new XDocument("root");
+      foreach (TodoItem it in lst)
+      {
+        XElement xel = new XElement("TodoItem",
+        new XElement("Id", it.Id),
+        new XElement("ItemText", it.ItemText),
+        new XElement("TimeStamp", it.TimeStamp)
+        );
+
+        newDoc.Add(xel);
+      }
+
+      newDoc.Save(DEFAULT_XML_FILE_PATH);
+    }
   }
 }
