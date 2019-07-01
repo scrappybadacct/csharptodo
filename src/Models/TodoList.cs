@@ -16,8 +16,8 @@ namespace Models
 
     public TodoList()
     {
-      IdCount = 0;
       ItemList = File.Exists(DEFAULT_XML_FILE_PATH) ? LoadFromFile() : new List<TodoItem>();
+      IdCount = ItemList.Count;
       Items = ItemList.AsReadOnly();
     }
 
@@ -41,7 +41,7 @@ namespace Models
       TodoItem it = ItemList.Find(x => x.Id == id);
       if (it == null) throw new ArgumentOutOfRangeException("Id");
 
-      it.ItemText = newText;
+      it.Update(newText);
 
       return Items;
     }

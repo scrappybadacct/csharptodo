@@ -9,6 +9,8 @@ namespace App
     static void Main(string[] args)
     {
       TodoList lst = new TodoList();
+      lst.Add("Whatever");
+      lst.Add("cool");
       foreach (TodoItem it in lst.Items)
       {
         Console.WriteLine(it.ItemText);
