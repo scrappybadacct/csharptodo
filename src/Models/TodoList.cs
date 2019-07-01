@@ -54,7 +54,7 @@ namespace Models
     static List<TodoItem> LoadFromFile()
     {
       XDocument doc = XDocument.Load(DEFAULT_XML_FILE_PATH);
-      return doc.Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
+      return doc.Element("root").Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
       {
         string id = xel.Element("Id").Value;
         string itemText = xel.Element("ItemText").Value;
@@ -62,7 +62,7 @@ namespace Models
 
         try
         {
-          TodoItem it = new TodoItem(Int64.Parse(id), itemText, new DateTime(Int64.Parse(timeStamp)));
+          TodoItem it = new TodoItem(Int64.Parse(id), itemText, DateTime.Parse(timeStamp));
           lst.Add(it);
           return lst;
         }
@@ -75,7 +75,7 @@ namespace Models
 
     static void SaveToFile(List<TodoItem> lst)
     {
-      XDocument newDoc = new XDocument("root");
+      XDocument newDoc = new XDocument(new XElement("root"));
       foreach (TodoItem it in lst)
       {
         XElement xel = new XElement("TodoItem",
@@ -84,7 +84,7 @@ namespace Models
         new XElement("TimeStamp", it.TimeStamp)
         );
 
-        newDoc.Add(xel);
+        newDoc.Element("root").Add(xel);
       }
 
       newDoc.Save(DEFAULT_XML_FILE_PATH);

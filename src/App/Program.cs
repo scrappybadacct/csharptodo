@@ -8,7 +8,13 @@ namespace App
   {
     static void Main(string[] args)
     {
-      Console.WriteLine(TodoList.DEFAULT_XML_FILE_PATH);
+      TodoList lst = new TodoList();
+      foreach (TodoItem it in lst.Items)
+      {
+        Console.WriteLine(it.ItemText);
+        Console.WriteLine(it.Id);
+        Console.WriteLine(it.TimeStamp);
+      }
     }
   }
 }
