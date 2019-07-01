@@ -1111,7 +1111,8 @@
       },
       "App/1.0.0": {
         "dependencies": {
-          "Controllers": "1.0.0"
+          "Controllers": "1.0.0",
+          "Models": "1.0.0"
         },
         "runtime": {
           "App.dll": {}

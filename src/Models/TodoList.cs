@@ -1,19 +1,15 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 using System.Collections.Generic;
-/* 
-  I'm taking a break here.
-  My plan going forward is to create save and load static methods which can serialize the object in XML to an external file.
-  The load method will be called by the object in the constructor. 
-    - It will check if there is a file(stored at a standard location), and if it deserializes to list<TodoItems> and set that to ItemList.
-    - else it will set an empty List.
-  The Save method will serialize the object, then save it to the file.
-    - It will be exposed through a public method on the instance, which calls the static method with "this".
-*/
 
 namespace Models
 {
   public class TodoList
   {
+    public static readonly string DEFAULT_XML_FILE_PATH = Path.Combine(Environment.CurrentDirectory, "list.xml");
+
     private long IdCount;
     private readonly List<TodoItem> ItemList;
     public IReadOnlyList<TodoItem> Items { get; }
@@ -50,7 +46,31 @@ namespace Models
       return Items;
     }
 
-    static void LoadFromFile() { }
+    // is this really the best way to do this?
+    // replace with foreach for one.
+    // but its the casts and parsing I'm worried about.
+    static void LoadFromFile()
+    {
+      XDocument doc = XDocument.Load(DEFAULT_XML_FILE_PATH);
+      doc.Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
+      {
+        string id = xel.Element("Id").Value;
+        string itemText = xel.Element("ItemText").Value;
+        string timeStamp = xel.Element("TimeStamp").Value;
+
+        try
+        {
+          TodoItem it = new TodoItem(Int64.Parse(id), itemText, new DateTime(Int64.Parse(timeStamp)));
+          lst.Add(it);
+          return lst;
+        }
+        catch (FormatException)
+        {
+          throw new Exception("Id of TodoItem could not be parsed from xml!");
+        }
+      });
+    }
+
     static void SaveToFile() { }
   }
 }

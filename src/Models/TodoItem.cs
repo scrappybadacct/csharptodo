@@ -1,19 +1,18 @@
 using System;
 
-// start here!
 namespace Models
 {
   public class TodoItem
   {
-    readonly public long Id;
-    readonly public DateTime TimeStamp;
+    public long Id;
+    public DateTime? TimeStamp;
     public string ItemText;
 
-    public TodoItem(long id, string text)
+    public TodoItem(long id, string text, DateTime? time = null)
     {
       Id = id;
       ItemText = text;
-      TimeStamp = DateTime.Now;
+      TimeStamp = time != null ? time : DateTime.Now;
     }
   }
 }

@@ -716,7 +716,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Controllers >= 1.0.0",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -749,6 +750,9 @@
           "projectReferences": {
             "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj": {
               "projectPath": "/home/conor/dev/cstodo/src/Controllers/Controllers.csproj"
+            },
+            "/home/conor/dev/cstodo/src/Models/Models.csproj": {
+              "projectPath": "/home/conor/dev/cstodo/src/Models/Models.csproj"
             }
           }
         }
