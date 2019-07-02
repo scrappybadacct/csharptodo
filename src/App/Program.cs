@@ -71,7 +71,7 @@ namespace App
 
       foreach (TodoItem it in lst.Items)
       {
-        string rep = $"|{it.Id}|\n\t{it.ItemText}";
+        string rep = $"|{it.Id}|\n\t{it.ItemText}\nDone: {(it.IsCompleted ? "True" : "False")}";
         System.Console.WriteLine(rep);
       }
     }
