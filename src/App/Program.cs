@@ -21,9 +21,37 @@ namespace App
             System.Console.WriteLine("error");
           }
           break;
+
         case "list-all":
           ListAll();
           break;
+
+        case "remove":
+          bool flag1 = RemoveItem(Int64.Parse(args[1]));
+
+          if (flag1)
+          {
+            System.Console.WriteLine("removed");
+          }
+          else
+          {
+            System.Console.WriteLine("error");
+          }
+          break;
+
+        case "edit":
+          bool flag2 = UpdateItem(Int64.Parse(args[1]), args[2]);
+
+          if (flag2)
+          {
+            System.Console.WriteLine("updated");
+          }
+          else
+          {
+            System.Console.WriteLine("error");
+          }
+          break;
+
         default:
           Console.WriteLine("!!!");
           break;
@@ -46,6 +74,22 @@ namespace App
         string rep = $"|{it.Id}|\n\t{it.ItemText}";
         System.Console.WriteLine(rep);
       }
+    }
+
+    static bool RemoveItem(long id)
+    {
+      TodoList lst = new TodoList();
+      lst.Delete(id);
+
+      return lst.Save();
+    }
+
+    static bool UpdateItem(long id, string newText)
+    {
+      TodoList lst = new TodoList();
+      lst.Update(id, newText);
+
+      return lst.Save();
     }
   }
 }
