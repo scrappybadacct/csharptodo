@@ -16,8 +16,16 @@ namespace Models
 
     public TodoList()
     {
-      ItemList = File.Exists(DEFAULT_XML_FILE_PATH) ? LoadFromFile() : new List<TodoItem>();
-      IdCount = ItemList.Count;
+      if (File.Exists(DEFAULT_XML_FILE_PATH))
+      {
+        (IdCount, ItemList) = LoadFromFile();
+      }
+      else
+      {
+        IdCount = 0;
+        ItemList = new List<TodoItem>();
+      }
+
       Items = ItemList.AsReadOnly();
     }
 
@@ -48,13 +56,14 @@ namespace Models
 
     public void Save()
     {
-      SaveToFile(ItemList);
+      SaveToFile(ItemList, IdCount);
     }
 
-    static List<TodoItem> LoadFromFile()
+    static (long idCount, List<TodoItem> lst) LoadFromFile()
     {
       XDocument doc = XDocument.Load(DEFAULT_XML_FILE_PATH);
-      return doc.Element("root").Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
+
+      List<TodoItem> listFromXML = doc.Element("root").Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
       {
         string id = xel.Element("Id").Value;
         string itemText = xel.Element("ItemText").Value;
@@ -71,11 +80,18 @@ namespace Models
           throw new Exception("Id of TodoItem could not be parsed from xml!");
         }
       });
+
+      long idCountFromXml = Int64.Parse(doc.Element("root").Attribute("IdCount").Value);
+
+      return (idCount: idCountFromXml, lst: listFromXML);
     }
 
-    static void SaveToFile(List<TodoItem> lst)
+    static void SaveToFile(List<TodoItem> lst, long cnt)
     {
-      XDocument newDoc = new XDocument(new XElement("root"));
+      XElement newRoot = new XElement("root");
+      newRoot.SetAttributeValue("IdCount", cnt);
+
+      XDocument newDoc = new XDocument(newRoot);
       foreach (TodoItem it in lst)
       {
         XElement xel = new XElement("TodoItem",
