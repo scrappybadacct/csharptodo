@@ -7,6 +7,7 @@ namespace Models
     public long Id { get; private set; }
     public DateTime TimeStamp { get; private set; }
     public string ItemText { get; private set; }
+    public bool IsCompleted { get; private set; }
 
     public TodoItem(long id, string text)
     {
@@ -25,6 +26,11 @@ namespace Models
     public void Update(string txt)
     {
       ItemText = txt;
+    }
+
+    public void MarkComplete()
+    {
+      IsCompleted = true;
     }
   }
 }

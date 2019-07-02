@@ -105,7 +105,8 @@ namespace Models
         XElement xel = new XElement("TodoItem",
         new XElement("Id", it.Id),
         new XElement("ItemText", it.ItemText),
-        new XElement("TimeStamp", it.TimeStamp)
+        new XElement("TimeStamp", it.TimeStamp),
+        new XElement("IsCompleted", it.IsCompleted)
         );
 
         newDoc.Element("root").Add(xel);
