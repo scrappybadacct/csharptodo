@@ -54,9 +54,17 @@ namespace Models
       return Items;
     }
 
-    public void Save()
+    public bool Save()
     {
-      SaveToFile(ItemList, IdCount);
+      try
+      {
+        SaveToFile(ItemList, IdCount);
+        return true;
+      }
+      catch (Exception)
+      {
+        return false;
+      }
     }
 
     static (long idCount, List<TodoItem> lst) LoadFromFile()

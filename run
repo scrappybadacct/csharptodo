@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $# -gt 0 ]; then
-  dotnet run --project ./src/App/App.csproj $*;
+  dotnet run --project ./src/App/App.csproj "$@";
 else
   dotnet run --project ./src/App/App.csproj;
 fi  
