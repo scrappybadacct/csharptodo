@@ -48,10 +48,5 @@ namespace Models
     {
       return new TodoItem(id, text, time, isCompleted);
     }
-
-    // public static TodoItem FromXElement(XElement xElement)
-    // {
-    //   return SerializableTodoItem.FromXElement(xElement);
-    // }
   }
 }
