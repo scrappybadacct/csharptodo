@@ -11,7 +11,7 @@ namespace Models
     public static readonly string DEFAULT_XML_FILE_PATH = Path.Combine(Environment.CurrentDirectory, "list.xml");
 
     private long IdCount;
-    private readonly List<TodoItem> ItemList;
+    private readonly List<TodoItem> ItemList; // readonly only protects reference. Can still add.
     public IReadOnlyList<TodoItem> Items { get; }
 
     public TodoList()
@@ -67,47 +67,34 @@ namespace Models
       }
     }
 
+    // nullable? in case of failure?
     static (long idCount, List<TodoItem> lst) LoadFromFile()
     {
       XDocument doc = XDocument.Load(DEFAULT_XML_FILE_PATH);
 
-      List<TodoItem> listFromXML = doc.Element("root").Elements().Aggregate<XElement, List<TodoItem>>(new List<TodoItem>(), (List<TodoItem> lst, XElement xel) =>
-      {
-        string id = xel.Element("Id").Value;
-        string itemText = xel.Element("ItemText").Value;
-        string timeStamp = xel.Element("TimeStamp").Value;
+      List<TodoItem> listFromXML = new List<TodoItem>();
 
-        try
-        {
-          TodoItem it = new TodoItem(Int64.Parse(id), itemText, DateTime.Parse(timeStamp));
-          lst.Add(it);
-          return lst;
-        }
-        catch (FormatException)
-        {
-          throw new Exception("Id of TodoItem could not be parsed from xml!");
-        }
-      });
+      foreach (XElement xel in doc.Element("root").Elements())
+      {
+        listFromXML.Add(TodoItem.FromXElement(xel));
+      }
 
       long idCountFromXml = Int64.Parse(doc.Element("root").Attribute("IdCount").Value);
 
       return (idCount: idCountFromXml, lst: listFromXML);
     }
 
+    // Error handling? return bool?
     static void SaveToFile(List<TodoItem> lst, long cnt)
     {
       XElement newRoot = new XElement("root");
       newRoot.SetAttributeValue("IdCount", cnt);
 
       XDocument newDoc = new XDocument(newRoot);
+
       foreach (TodoItem it in lst)
       {
-        XElement xel = new XElement("TodoItem",
-        new XElement("Id", it.Id),
-        new XElement("ItemText", it.ItemText),
-        new XElement("TimeStamp", it.TimeStamp),
-        new XElement("IsCompleted", it.IsCompleted)
-        );
+        XElement xel = it.ToXElement();
 
         newDoc.Element("root").Add(xel);
       }
