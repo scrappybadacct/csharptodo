@@ -6,26 +6,25 @@ using System.Collections.Generic;
 
 namespace Models
 {
-  public class TodoList
+  public class TodoList : FsSavableTodoList
   {
     public static readonly string DEFAULT_XML_FILE_PATH = Path.Combine(Environment.CurrentDirectory, "list.xml");
 
-    private long IdCount;
-    private readonly List<TodoItem> ItemList; // readonly only protects reference. Can still add.
+    public long IdCount { get; private set; }
+    private readonly List<TodoItem> ItemList;
     public IReadOnlyList<TodoItem> Items { get; }
 
     public TodoList()
     {
-      if (File.Exists(DEFAULT_XML_FILE_PATH))
-      {
-        (IdCount, ItemList) = LoadFromFile();
-      }
-      else
-      {
-        IdCount = 0;
-        ItemList = new List<TodoItem>();
-      }
+      IdCount = 0;
+      ItemList = new List<TodoItem>();
+      Items = ItemList.AsReadOnly();
+    }
 
+    private TodoList(List<TodoItem> lst, long idCount)
+    {
+      IdCount = idCount;
+      ItemList = lst;
       Items = ItemList.AsReadOnly();
     }
 
@@ -54,6 +53,11 @@ namespace Models
       return Items;
     }
 
+    public static TodoList FromListOfTodoItems(List<TodoItem> lst, long idCount)
+    {
+      return new TodoList(lst, idCount);
+    }
+
     public bool Save()
     {
       try
@@ -67,21 +71,12 @@ namespace Models
       }
     }
 
-    // nullable? in case of failure?
-    static (long idCount, List<TodoItem> lst) LoadFromFile()
+    static TodoList LoadFromFile()
     {
       XDocument doc = XDocument.Load(DEFAULT_XML_FILE_PATH);
+      XElement todoListXElement = doc.Element("TodoList");
 
-      List<TodoItem> listFromXML = new List<TodoItem>();
-
-      foreach (XElement xel in doc.Element("root").Elements())
-      {
-        listFromXML.Add(TodoItem.FromXElement(xel));
-      }
-
-      long idCountFromXml = Int64.Parse(doc.Element("root").Attribute("IdCount").Value);
-
-      return (idCount: idCountFromXml, lst: listFromXML);
+      return TodoList.FromXElement(todoListXElement);
     }
 
     // Error handling? return bool?
